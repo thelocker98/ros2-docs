@@ -101,7 +101,7 @@ ros2 launch turtlebot4_viz view_robot.launch.py
 
 Once you are done creating the map make sure you save it.
 ```bash
-
+ros2 run nav2_map_server map_saver_cli -f "map_name"
 ```
 
 
