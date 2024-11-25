@@ -1,70 +1,10 @@
-# Homepage
+# Welcome
+Welcome this is the documenation for the Rhodes State ROS 2 Robotics equitment. This information is a collection of useful tips gathered from [Clearpath Robot Docs](https://docs.clearpathrobotics.com/docs/robots/), [Clearpath ROS 2](https://docs.clearpathrobotics.com/docs/ros/), and [Turtlebot 4 Manuel](https://turtlebot.github.io/turtlebot4-user-manual/). It also has informtation from the following courses; [ROS2 For Beginners](https://www.udemy.com/course/ros2-for-beginners)
+## Husky 200
+This section has all the importent information on the Husky 200 and how to program it and using ROS 2.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Turtlebot 4
+This section has information on the Turtlebot 4 and how to program it and using ROS 2.
 
-## Code Annotation Examples
-
-### Codeblocks
-
-Some `code` goes here.
-
-### Plain codeblock
-
-A plain codeblock:
-
-```
-Some code here
-def myfunction()
-// some comment
-```
-
-#### Code for a specific language
-
-Some more code with the `py` at the start:
-
-``` py
-import tensorflow as tf
-def whatever()
-```
-
-#### With a title
-
-``` py title="bubble_sort.py"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range(len(items) - 1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
-```
-asdkfaj;sldkf
-
-
-#### With line numbers
-
-```py linenums="1"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range(len(items) - 1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
-```
-
-#### Highlighting lines
-
-```py hl_lines="2 3"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range(len(items) - 1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
-```
-
-## Icons and Emojs
-
-:smile: 
-
-:fontawesome-regular-face-laugh-wink:
-
-:fontawesome-brands-twitter:{ .twitter }
-
-:octicons-heart-fill-24:{ .heart }
+## General ROS 2
+This section covers genral topics and tools that are useful for ROS 2 development.8

@@ -20,7 +20,8 @@ Once this command is running then you should be able to drive the robot like nor
 
 ### Launching the SLAM command
 Here is the `slam.yaml` config file. You can change the resolution by changing the resolution parameter, by default it is 0.05 but i have had great success when running synchronous SLAM with values as low as 0.01.
-```yaml
+
+```yaml title="slam.yaml"
 slam_toolbox:
   ros__parameters:
 
@@ -106,6 +107,7 @@ Once you are done creating the map make sure you save it.
 
 #### Navigation
 To launch the navigation program on the Turtlebot 4 run the following commands. One per terminal window making sure to execute them on the Remote PC.
+
 ```bash
 # Terminal Window 1
 ros2 launch turtlebot4_navigation localization.launch.py map:/path/to/map.yaml

@@ -38,24 +38,22 @@ extra:
     - icon: fontawesome/brands/gitlab
       link: https://gitea.locker98.com
 
-  markdown_extensions:
-    - pymdownx.highlight:
-        anchor_linenums: true
-        line_spans: __span
-        pygments_langclass: true
-    - pymdownx.inlinehilite
-    - pymdownx.snippets
-    - admonition
-    - pymdownx.arithmatex:
-        generic: true
-    - footnotes
-    - pymdownx.details
-    - pymdownx.superfences
-    - pymdownx.mark
-    - attr_list
-    - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
+copyright: |
+  &copy; 2023 <a href="https://github.com/thelocker98"  target="_blank" rel="noopener">locker98</a>
 
-  copyright: |
-    &copy; 2023 <a href="https://github.com/thelocker98"  target="_blank" rel="noopener">locker98</a>
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
