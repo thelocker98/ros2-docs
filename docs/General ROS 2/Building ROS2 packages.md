@@ -1,9 +1,21 @@
-# Setting up VSCode
+# Setup
+## Installing VSCode
 first install vscode using snap
 ```bash
 sudo snap install code --classic
 ```
 then add the `ROS` extension from Microsoft.
+
+## Installing Colcon
+To install colcon first run the sudo apt install command.
+``` bash
+sudo apt install python3-colcon-common-extensions
+```
+
+then add the colcon autocomplete to the `.bashrc` file.
+``` bash
+echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> ~/.bashrc
+```
 
 
 # Setting up the ROS2 Package Workspace
@@ -13,11 +25,8 @@ colcon build
 ```
 next go into the `install` folder and add the `setup.bash` source command to your `~/.bashrc`
 ```bash
-...
-source /home/username/package_ws/install/setup.bash
+echo "source /home/username/package_ws/install/setup.bash" >> ~/.bashrc
 ```
-
-
 
 ## Creating a Python Packages
 #### Setting Up
@@ -88,6 +97,7 @@ then just like before run the `source ~/.bashrc` command to refresh everything a
 ## Creating a C++ Packages
 Go to the workspace folder that was created in the last step and open the `src` folder. In this folder run this command.
 ```bash
-ros2 pkg create {package_name} --build-type ament_cmake
+ros2 pkg create {package_name} --build-type ament_cmake --dependencies rclcpp
 ```
 
+![Image title](img/ros2_nodes.png)
