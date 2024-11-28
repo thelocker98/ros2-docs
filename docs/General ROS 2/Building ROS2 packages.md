@@ -39,8 +39,8 @@ add your code in to the folder with the `__init__.py`. This is usually in the fo
 
 #### Programming
 create a python file for your first node.
-`my_first_node.py`
-```python
+
+```python title="my_first_node.py"
 #!/usr/bin/env python
 import rclpy
 from rclpy.node import Node
@@ -100,4 +100,65 @@ Go to the workspace folder that was created in the last step and open the `src` 
 ros2 pkg create {package_name} --build-type ament_cmake --dependencies rclcpp
 ```
 
-![Image title](img/ros2_nodes.png)
+
+next create a file in `{package_name}/src`and call it `node_name.cpp`
+
+```cpp title="node_name.cpp"
+#include "rclcpp/rclcpp.hpp"  
+  
+class MyNode : public rclcpp::Node  
+{  
+public:  
+   MyNode() : Node("cpp_test"), counter_(0)  
+   {  
+       RCLCPP_INFO(this->get_logger(), "Hello Cpp Node");  
+  
+       timer_ = this->create_wall_timer(std::chrono::milliseconds(500),  
+                                        std::bind(&MyNode::timerCallback, this));  
+   }  
+  
+private:  
+   void timerCallback()  
+   {  
+       counter_++;  
+       RCLCPP_INFO(this->get_logger(), "Hello %d", counter_);  
+   }  
+  
+   rclcpp::TimerBase::SharedPtr timer_;  
+   int counter_;  
+};  
+  
+int main(int argc, char **argv)  
+{  
+   rclcpp::init(argc, argv);  
+   auto node = std::make_shared<MyNode>();  
+   rclcpp::spin(node);  
+   rclcpp::shutdown();  
+   return 0;  
+}
+```
+
+Next open the program menu on VSCode using `CTRL + SHIFT + P`. Select the `C/C++: Edit Configurations (JSON)`. Make Sure the `c_cpp_properties.json` file has the `"/opt/ros/humble/include/**"` include
+
+```json hl_lines="9"
+{
+	"configurations": [
+		{
+			"browse": {
+				"databaseFilename": "${default}",
+				"limitSymbolsToIncludedHeaders": false
+			},
+			"includePath": [
+				"/opt/ros/humble/include/**",
+				"/usr/include/**"
+			],
+			"name": "ROS",
+			"intelliSenseMode": "gcc-x64",
+			"compilerPath": "/usr/bin/gcc",
+			"cStandard": "gnu11",
+			"cppStandard": "c++14"
+		}
+	],
+	"version": 4
+}
+```

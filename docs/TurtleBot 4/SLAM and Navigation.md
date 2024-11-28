@@ -20,7 +20,7 @@ Once this command is running then you should be able to drive the robot like nor
 
 ### Launching the SLAM command
 Here is the `slam.yaml` config file. You can change the resolution by changing the resolution parameter, by default it is 0.05 but i have had great success when running synchronous SLAM with values as low as 0.01.
-```yaml
+```yaml title="slam.yaml"
 slam_toolbox:
   ros__parameters:
 
@@ -100,7 +100,7 @@ ros2 launch turtlebot4_viz view_robot.launch.py
 
 Once you are done creating the map make sure you save it.
 ```bash
-
+ros2 run nav2_map_server map_saver_cli -f "map_name"
 ```
 
 
