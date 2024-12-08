@@ -1,4 +1,5 @@
-# SLAM
+# SLAM and Navigation
+## SLAM
 ### Troubleshooting
 #### Date and Time off
 one of the major problems with the Turtlebot 4 and communication is the time. Make sure you use the `date` command and check what time it is. If the time is off use `rasp-config` to set the correct timezone. The standard Turtlebot 4 image does not have rasp-config install so you will probably have to install it with `sudo apt install rasp-config`.
@@ -20,7 +21,7 @@ Once this command is running then you should be able to drive the robot like nor
 
 ### Launching the SLAM command
 Here is the `slam.yaml` config file. You can change the resolution by changing the resolution parameter, by default it is 0.05 but i have had great success when running synchronous SLAM with values as low as 0.01.
-```yaml title="slam.yaml"
+```yaml title="slam.yaml" linenums="1"
 slam_toolbox:
   ros__parameters:
 
@@ -104,7 +105,7 @@ ros2 run nav2_map_server map_saver_cli -f "map_name"
 ```
 
 
-#### Navigation
+## Navigation
 To launch the navigation program on the Turtlebot 4 run the following commands. One per terminal window making sure to execute them on the Remote PC.
 ```bash
 # Terminal Window 1

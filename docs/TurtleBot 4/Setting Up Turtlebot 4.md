@@ -1,6 +1,8 @@
+# Setting Up Turtlebot 4
+## Resources
 Follow these [steps](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)on the ROS 2 Documentation Page in install ROS2 on your Remote PC, laptop. Then follow these [steps](https://turtlebot.github.io/turtlebot4-user-manual/setup/basic.html) in the official Turtlebot 4 documentation to install all the Turtlebot 4 programs on your Remote PC, laptop. 
 
-###### Quick Tip
+## Quick Tip
 add the `source /opt/ros/humble/setup.bash` command to the `.bashrc` file so you do not have to source it everytime you open a new terminal window
 ```bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc

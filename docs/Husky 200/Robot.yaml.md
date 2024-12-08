@@ -1,12 +1,17 @@
-launching simulator
+# robot.yaml
+The `robot.yaml` file has all the configurations for the Husky 200 robot and the other clearpathrobotics robots.
+## Visualizing
+To see the `robot.yaml` file run the following command. It will show you how the robot looks and where all the sensors are placed. It comes in hand for not only confirming that everything is on the robot in the right place but that their is also no errors in the robot.yaml file.
+
 ```bash
-ros2 launch clearpath_gz simulation.launch.py setup_path:=$HOME/clearpath
+ros2 launch clearpath_viz view_model.launch.py setup_path:=/home/brickman/clearpath/
 ```
 
 
-## Using Manipulator
-robot.yaml
-```yaml
+## Sample file
+Below is a sample of the robot.yaml file.
+
+```yaml title="robot.yaml" linenums="1"
 serial_number: a200-0000
 version: 0
 system:
@@ -36,21 +41,3 @@ manipulators:
       gripper:
         model: kinova_2f_lite
 ```
-
-Launch the simulation
-```
-ros2 launch clearpath_gz simulation.launch.py setup_path:=$HOME/clearpath
-```
-
-Launch MoveIt! by passing the same robot setup directory and setting the simulation flag.
-```
-ros2 launch clearpath_manipulators moveit.launch.py setup_path:=$HOME/clearpath use_sim_time:=true
-```
-
-Launch RViz by passing the robot's namespace and enabling the simulation flag.
-```
-ros2 launch clearpath_viz view_moveit.launch.py namespace:=a200_0000 use_sim_time:=True
-```
-
-
-

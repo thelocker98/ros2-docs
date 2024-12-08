@@ -1,1 +1,3 @@
+# Oak D Pro Camera
+## Information and Resources
 The Oak d Pro Camera is an 3d depth camera with integrated NPU for advance AI processing. It is equipped with three cameras two gray scale for the right and left stereo camera and on center camera for color and AI inference. It comes with yolo-v6, yolo-v8, face detector, and an model that detects your gender and age. For more information on how to use it go to [docs.luxonis.com](https://docs.luxonis.com/).
