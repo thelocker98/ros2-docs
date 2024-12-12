@@ -1,4 +1,4 @@
-# Subscriber
+# ROS 2 Subscriber
 
 ## Sample Code
 Here is the code for creating a python node that subscribes to `/robot_news` at 2Hz.

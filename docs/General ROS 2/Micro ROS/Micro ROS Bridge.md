@@ -6,7 +6,7 @@
 	docker run -it --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host microros/micro-ros-agent:$ROS_DISTRO serial --dev [YOUR BOARD PORT] -v6
 	```
 === "docker compose"
-	```yaml title="docker-compose.yaml"
+	```yaml title="docker-compose.yaml" linenums="1"
 	services:
 	 micro_ros_agent:
 	   image: microros/micro-ros-agent:humble
@@ -26,7 +26,7 @@
 	docker run -it --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host microros/micro-ros-agent:$ROS_DISTRO tcp4 --port 8888 -v6
 	```
 === "docker compose"
-	```yaml title="docker-compose.yaml"
+	```yaml title="docker-compose.yaml" linenums="1"
 	services:
 	 micro_ros_agent:
 	   image: microros/micro-ros-agent:humble
@@ -46,7 +46,7 @@
 	docker run -it --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host microros/micro-ros-agent:$ROS_DISTRO udp4 --port 8888 -v6
 	```
 === "docker compose"
-	```yaml title="docker-compose.yaml"
+	```yaml title="docker-compose.yaml" linenums="1"
 	services:
 	 micro_ros_agent:
 	   image: microros/micro-ros-agent:humble

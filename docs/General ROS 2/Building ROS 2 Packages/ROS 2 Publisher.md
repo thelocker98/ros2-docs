@@ -1,4 +1,4 @@
-# Publisher
+# ROS 2 Publisher
 ## Sample Code
 Here is the code for creating a node that publishes strings to `/robot_news` at 2Hz.
 
