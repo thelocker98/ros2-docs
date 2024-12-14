@@ -87,7 +87,7 @@ here is a sample:
 ```
 ### Materials
 Materials allow color and other information to be added to a `<visual>`
-```xml
+```xml linenums="1"
 <material name="green">
 	<color rgba='0 1 0 0'>
 </material>
@@ -111,7 +111,7 @@ Materials allow color and other information to be added to a `<visual>`
 	- **Color**: `<color rgba="r g b a" />` uses RGBA values (alpha for transparency).
 	- **Texture**: `<texture filename="path/to/texture" />` for applying an image.
 
-```xml
+```xml linenums="1"
 <link name="base_link">
 	<visual>
 		<geometry>
@@ -123,6 +123,97 @@ Materials allow color and other information to be added to a `<visual>`
 </link>
 ```
 
+#### Inertial
+The inertia element is used to calculate the movement of the robot in gazebo. The inertia element is a requirement for the gazebo simulation. To get the 3D tensor for the inertia values use this [Wikipedia link](https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors). I is usually best to put these inertia calculations in xacro function to allow them to be use all over the robot like shown.
+
+```xml linenums="1"
+<xacro:macro name="box_inertia" params="m l w h xyz rpy">
+	<inertial>
+		<mass value="${m}"/>
+		<origin xyz="${xyz}" rpy="${rpy}"/>
+		<inertia ixx="${(m/12) * (h*h + l*l)}" ixy="0" ixz="0"
+				 iyy="${(m/12) * (w*w + l*l)}" iyz="0"
+				 izz="${(m/12) * (w*w + h*h)}" />
+	</inertial>
+</xacro:macro>
+
+<link name="base_link">
+	<visual>
+		<geometry>
+			<box size="${base_length} ${base_width} ${base_height}"/>
+		</geometry>
+		<origin xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+		<material name="blue"/>
+	</visual>
+	<collision>
+		<geometry>
+			<box size="${base_length} ${base_width} ${base_height}"/>
+		</geometry>
+		<origin xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+	</collision>
+	<xacro:box_inertia m="5.0" l="${base_length}" w="${base_width}" h="${base_height}"
+						xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+</link>
+```
+
+##### Bug
+Sometimes the inertial values have to be increased to fix drifting in gazebo. To do this usual you just multiply all the inertial input by `2` or `3`.
+```xml linenums="1"
+<xacro:box_inertia m="5.0" l="${base_length * 2}" w="${base_width * 2}" h="${base_height * 2}"
+					xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+```
+#### Collisions
+The collision element is added inside the link element to give gazebo the information on the collision shape of the robot. This is usually a simplify shape to make the simulation easy on the computer.
+```xml linenums="1"
+<collision>
+	<geometry>
+		<cylinder radius="4" length="4"/>
+	</geometry>
+	<origin xyz="0 0 0" rpy="${pi / 2.0} 0 0"/>
+</collision>
+```
+
+### Gazebo
+The gazebo element allows you to specifies information for gazebo. 
+#### Plugin
+The plugin feature of URDF for gazebo lets you add ROS topics to URDF files so that you can simulate different inputs and outputs of values.
+
+```xml
+<gazebo>
+	<plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+		<!-- Update rate in Hz -->
+		<update_rate>50</update_rate>
+		<!-- Wheels -->
+		<left_joint>base_left_wheel_joint</left_joint>
+		<right_joint>base_right_wheel_joint</right_joint>
+		<!-- Size -->
+		<wheel_separation>${wheel_length + base_width}</wheel_separation>
+		<wheel_diameter>${wheel_radius}</wheel_diameter>
+		<!-- Ros Topic -->
+		<command_topic>cmd_vel</command_topic>
+		<!-- output -->
+		<publish_odom>true</publish_odom>
+		<publish_odom_tf>true</publish_odom_tf>
+		<publish_wheel_tf>true</publish_wheel_tf>
+		<odometry_topic>odom</odometry_topic>
+		<odometry_frame>odom</odometry_frame>
+		<robot_base_frame>base_footprint</robot_base_frame>
+	</plugin>
+</gazebo>
+```
+
+#### Material
+Adding material to gazebo you have to add a custom gazebo material.
+```xml
+<!-- the reference field gives gazebo the URDF link element  -->
+<gazebo reference="link_name">
+	<!-- Material Color -->
+	<material>Gazebo/Gray</material>
+	<!-- friction values -->
+	<mu1 value="0.1" />
+	<mu2 value="0.1" />
+</gazebo>
+```
 
 ### Joints
 Joints are what old different objects together. There are many different types of joints as shown below. There are also different parts to a joint. The `<parent>` link tells the join what it is attached to while the `<child>` link tells it what its child is. The `<origin>` section tells the joint where it is located with the `xyz`being the coordinates and the `rpy` being role, pitch, and yaw. The `<axis>` section indicates a 1 for allowed moment and a 0 for no movement. Finally the `<limit>` section gives a lower and upper bound.
@@ -189,7 +280,19 @@ This joint allows motion in a plane perpendicular to the axis.
 </joint>
 ```
 
-
+### Meshes
+This allows you to import meshes into your URDF from CAD programs. This allows you to add complex parts to your robot.
+```xml
+<link name="base_link">
+	<visual>
+		<geometry>
+			<mesh filename="package://package/meshes/folder_name/filename.stl" scale="0.001 0.001 0.001"/>
+		</geometry>
+		<origin xyz="0 0 0.1" rpy="0 0 0"/>
+		<material name="green" />
+	</visual>
+</link>
+```
 ## Links For Help
 Here are some links for help.
 - [ROS.org](https://wiki.ros.org/urdf/XML)

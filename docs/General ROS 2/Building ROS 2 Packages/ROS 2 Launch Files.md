@@ -5,7 +5,7 @@
 ## Creating Launch File Package
 When creating a launch file in ROS 2 you have to use the `ros2 pkg create package_name`. Once the package is created delete all the folders in the package folder and create a folder called `launch` inside this folder you can put all the launch files. Finally edit the `CMakeLists.txt` so that it looks like the one below.
 
-```cmake title="CMakeLists.txt" linenums="1"
+```cmake  linenums="1"
 cmake_minimum_required(VERSION 3.8)
 project(my_robot1_description)
 
