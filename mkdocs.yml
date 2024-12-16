@@ -1,4 +1,4 @@
-site_name: ROS2 Rhodesstate
+site_name: ROS2
 theme:
   name: material
   features:
