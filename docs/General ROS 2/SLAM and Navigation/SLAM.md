@@ -79,22 +79,22 @@ Here is a custom ROS 2 Launch file
 	```
 
 === "XML"
-	
-	This is the XML version that is much easier to understand but for some reason it does not work. There is some error with the args the makes it error every time I try to build it.
-	
+
 	```xml title="slam.launch.xml" linenums="1"
 	<launch>
-		<arg name="use_sim_time" default="False" />
-		
-		<include file="$(find-pkg-share nav2_bringup)/launch/navigation_launch.py">
-			<arg name="use_sim_time" value="$(arg use_sim_time)"/>
-		</include>
-		
-		<include file="$(find-pkg-share slam_toolbox)/launch/online_async_launch.py">
-			<arg name="use_sim_time" value="$(arg use_sim_time)"/>
-		</include>
-		
-		<node pkg="rviz2" executable="rviz2" output="screen" args="-d $(find-pkg-share locker98_tools_bringup)/rviz/nav2_slam.rviz" />
+	    <arg name="use_sim_time" default="False" />
+	    
+	    <include file="$(find-pkg-share nav2_bringup)/launch/navigation_launch.py">
+	        <arg name="use_sim_time" value="$(var use_sim_time)"/>
+	    </include>
+	  
+	    <include file="$(find-pkg-share slam_toolbox)/launch/online_async_launch.py">
+	        <arg name="use_sim_time" value="$(var use_sim_time)"/>
+	    </include>
+	    
+	    <node pkg="rviz2" exec="rviz2" output="screen">
+	        <param name="config" value="$(find-pkg-share locker98_tools_bringup)/rviz/nav2_config.rviz" />
+	    </node>
 	</launch>
 	```
 	

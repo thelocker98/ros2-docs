@@ -74,10 +74,7 @@ Here is a custom ROS 2 Launch file
 
 === "XML"
 	
-	This is the XML version that is much easier to understand but for some reason it does not work. There is some error with the args the makes it error every time I try to build it.
-	
 	```xml title="nav2.launch.xml" linenums="1"
-	<?xml version="1.0"?>
 	<launch>
 	    <!-- Declare Launch Arguments -->
 	    <arg name="use_sim_time" default="false" description="Use simulation time" />
@@ -85,8 +82,8 @@ Here is a custom ROS 2 Launch file
 	
 	    <!-- Include bringup launch file -->
 	    <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
-	        <arg name="use_sim_time" value="$(arg use_sim_time)" />
-	        <arg name="map" value="$(arg map)" />
+	        <arg name="use_sim_time" value="$(var use_sim_time)" />
+	        <arg name="map" value="$(var map)" />
 	    </include>
 	
 	    <!-- RViz node -->
