@@ -1,4 +1,4 @@
-site_name: ROS2
+site_name: ROS2 Documentation
 theme:
   name: material
   features:
