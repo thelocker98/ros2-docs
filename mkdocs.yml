@@ -55,8 +55,8 @@ markdown_extensions:
   - pymdownx.mark
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: materialx.emoji.twemoji
+      emoji_generator: materialx.emoji.twemoji
 
 extra_javascript:
   - https://medama.locker98.com/script.js
