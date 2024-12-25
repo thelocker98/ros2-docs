@@ -37,7 +37,7 @@ extra:
       link: https://gitea.locker98.com
 
 copyright: |
-  &copy; 2024 <a href="https://github.com/thelocker98"  target="_blank" rel="noopener">locker98</a>
+  &copy; 2024 <a href="https://gitea.locker98.com/ros2-docs"  target="_blank" rel="noopener">locker98</a>
 
 markdown_extensions:
   - pymdownx.highlight:
