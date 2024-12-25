@@ -1,3 +1,5 @@
+BRANCH ?= main
+
 update_and_build:
 	@git fetch
 	@if [ "`git rev-list HEAD...origin/$(BRANCH) --count`" -ne "0" ]; then \
