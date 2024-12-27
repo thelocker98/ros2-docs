@@ -60,4 +60,5 @@ markdown_extensions:
 
 extra_javascript:
   - https://medama.locker98.com/script.js
-  - mo-script.js
+  - sw.js
+  - sw_config.js
