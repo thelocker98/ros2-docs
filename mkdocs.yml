@@ -1,4 +1,5 @@
 site_name: ROS 2 Documentation
+site_url: https://locker98.com/
 theme:
   name: material
   features:
