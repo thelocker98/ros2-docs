@@ -173,47 +173,6 @@ The collision element is added inside the link element to give gazebo the inform
 </collision>
 ```
 
-### Gazebo
-The gazebo element allows you to specifies information for gazebo. 
-#### Plugin
-The plugin feature of URDF for gazebo lets you add ROS topics to URDF files so that you can simulate different inputs and outputs of values.
-
-```xml
-<gazebo>
-	<plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
-		<!-- Update rate in Hz -->
-		<update_rate>50</update_rate>
-		<!-- Wheels -->
-		<left_joint>base_left_wheel_joint</left_joint>
-		<right_joint>base_right_wheel_joint</right_joint>
-		<!-- Size -->
-		<wheel_separation>${wheel_length + base_width}</wheel_separation>
-		<wheel_diameter>${wheel_radius}</wheel_diameter>
-		<!-- Ros Topic -->
-		<command_topic>cmd_vel</command_topic>
-		<!-- output -->
-		<publish_odom>true</publish_odom>
-		<publish_odom_tf>true</publish_odom_tf>
-		<publish_wheel_tf>true</publish_wheel_tf>
-		<odometry_topic>odom</odometry_topic>
-		<odometry_frame>odom</odometry_frame>
-		<robot_base_frame>base_footprint</robot_base_frame>
-	</plugin>
-</gazebo>
-```
-
-#### Material
-Adding material to gazebo you have to add a custom gazebo material.
-```xml
-<!-- the reference field gives gazebo the URDF link element  -->
-<gazebo reference="link_name">
-	<!-- Material Color -->
-	<material>Gazebo/Gray</material>
-	<!-- friction values -->
-	<mu1 value="0.1" />
-	<mu2 value="0.1" />
-</gazebo>
-```
 
 ### Joints
 Joints are what old different objects together. There are many different types of joints as shown below. There are also different parts to a joint. The `<parent>` link tells the join what it is attached to while the `<child>` link tells it what its child is. The `<origin>` section tells the joint where it is located with the `xyz`being the coordinates and the `rpy` being role, pitch, and yaw. The `<axis>` section indicates a 1 for allowed moment and a 0 for no movement. Finally the `<limit>` section gives a lower and upper bound.

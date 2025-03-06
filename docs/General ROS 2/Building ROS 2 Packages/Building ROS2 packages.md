@@ -2,7 +2,7 @@
 ## Setup
 
 ### Setting up the ROS2 Package Workspace
-first create the folder for the package usual it is called `packagename_ws`where `_ws` stands for then you enter the directory and create another directory called `src` then run the `colcon build` command.
+First create the folder for the package usual it is called `packagename_ws`where `_ws` stands for then you enter the directory, and create, another directory called `src` then run the `colcon build` command.
 ```bash
 colcon build
 ```
@@ -74,12 +74,12 @@ colcon build --packages-select {package_name}
 
 
 ### Simplifying Build (specific to python)
-since we are using python and it is interpreted we can simplify the build process when working buy using the symlink command to avoid building.
+Since we are using python, and it is interpreted we can simplify the build process when working by using the symlink command to avoid building.
 ```bash
 colcon build --symlink-install
 ```
 
-then just like before run the `source ~/.bashrc` command to refresh everything and after that you will never have to worry about building or refreshing again.
+Then just like before run the `source ~/.bashrc` command to refresh everything and after that you will never have to worry about building or refreshing again.
 
 
 

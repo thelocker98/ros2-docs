@@ -91,7 +91,7 @@ Xacro files can include other Xacro or URDF files using `<xacro:include>`. This 
 ```
 
 ## Example XACRO File
-Here is a example of a URDF file for a small robot that uses XACRO.
+Here is an example of a URDF file for a small robot that uses XACRO. It uses the gazebo Classic configuration. To see the updated version for Gazebo Fortress go [here](https://gitea.locker98.com/locker98/course2_ws/src/branch/main/my_robot1_description/urdf).
 
 This is the main file:
 ```xml title="my_robot.urdf.xacro" linenums="1"

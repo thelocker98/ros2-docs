@@ -1,6 +1,7 @@
-# Gazebo
-## Installing Gazebo
-### Installing Gazebo Classic
+# Gazebo Classic
+## Installing Gazebo Classic
+Gazebo Classic reached end of life in January of 2025 and was replaced by Gazebo Fortress in Humble.
+
 To install gazebo classic:
 ```bash
 sudo apt install ros-humble-gazebo-*
@@ -11,28 +12,24 @@ Sometimes gazebo has the wrong resource path and the correct one has to be added
 export GAZEBO_RESOURCE_PATH=/usr/share/gazebo-11
 ```
 
-### Installing Gazebo Latest
-To install the latest version of gazebo go to the [official gazebo installation page](https://gazebosim.org/docs/latest/ros_installation/) and follow the instruction for the correct version of ROS.
-
-
 ## Launching Gazebo Classic
 To launch gazebo classic simply run `gazebo`:
 ```bash
 gazebo
 ```
 
-If you want to launch gazebo with ROS2 you will have to use its launch file:
+If you want to launch gazebo classic with ROS2 you will have to use its launch file:
 ```bash
 ros2 launch gazebo_ros gazebo.launch.py
 ```
 
-It can be trick to use a the gazebo launch file in another launch file but it can be done with the following code:
+It can be trick to use gazebo classic launch file in another launch file, but it can be done with the following code:
 ```xml
 <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py" />
 ```
 
 ## Using a robot in Gazebo Classic
-To get robot to appear in a Gazebo world first launch gazebo like show previously. Then use the following commands to advertise the robot description and spawn it in gazebo.
+To get robot to appear in a Gazebo world first launch gazebo classic like show previously. Then use the following commands to advertise the robot description and spawn it in gazebo classic.
 
 Terminal:
 ```bash
@@ -63,7 +60,7 @@ launch file:
 ```
 
 ## Building and Launching a World
-To build a world in gazebo you can follow this [tutorial](https://youtu.be/9Q2IuoVbqYo) Once the world is build and save it can be launch with the following command.
+To build a world in gazebo classic you can follow this [tutorial](https://youtu.be/9Q2IuoVbqYo) Once the world is build and save it can be launched with the following command.
 
 ```bash
 gazebo test_world.world.xml
